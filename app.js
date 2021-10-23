@@ -34,11 +34,15 @@ app.get('/ads', function (req, res){
     });
 });
 
-
-app.get('/adsGet', function(req,res){
-    res.send('Hello')
+app.get("/allads", async (req, res) => {
+	const Ads = await Ad.find()
+	res.send(Ads)
 });
 
+
+app.get('/adsGet', function(req,res){
+    res.send(Ad.find().then(result))
+});
 
 app.use("/api/adspost", adPostRoute);
 
