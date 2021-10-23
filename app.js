@@ -19,7 +19,7 @@ mongoose.connect('mongodb+srv://joaolopes:1234@cluster0.jhptj.mongodb.net/myFirs
 
 app.use(express.json());
 
-app.get('/ads', async (req, res, next) =>{
+app.get('/ads', function (req, res){
     Ad.find()
     .then(result =>{
         res.status(200).json({
