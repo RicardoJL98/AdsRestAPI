@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const Ad = require("./modules/adbody");
 
 const PORT = process.env.PORT || 3000;
 
@@ -18,9 +19,21 @@ mongoose.connect('mongodb+srv://joaolopes:1234@cluster0.jhptj.mongodb.net/myFirs
 
 app.use(express.json());
 
-app.get('/ads', function (req, res){
-    res.send('Hello world')
+app.get('/ads', async (req, res, next) =>{
+    Ad.find()
+    .then(result =>{
+        res.status(200).json({
+            AdList: result
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({
+            error:err
+        })
+    });
 });
+
 
 app.use("/api/adspost", adPostRoute);
 
