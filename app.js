@@ -34,12 +34,9 @@ app.get('/ads', function (req, res){
     });
 });
 
-app.get('/adsGet', function(req,res){
-    Ad.find()
-    .then(result =>{
-        res.send(result)
-    });
 
+app.get('/adsGet', function(req,res){
+    res.send('Hello')
 });
 
 
