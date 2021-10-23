@@ -34,6 +34,14 @@ app.get('/ads', function (req, res){
     });
 });
 
+app.get('/adsGet', function(req,res){
+    Ad.find()
+    .then(result =>{
+        res.send(result)
+    });
+
+});
+
 
 app.use("/api/adspost", adPostRoute);
 
