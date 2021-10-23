@@ -19,29 +19,9 @@ mongoose.connect('mongodb+srv://joaolopes:1234@cluster0.jhptj.mongodb.net/myFirs
 
 app.use(express.json());
 
-app.get('/ads', function (req, res){
-    Ad.find()
-    .then(result =>{
-        res.status(200).json({
-            AdList: result
-        });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json({
-            error:err
-        })
-    });
-});
-
-app.get("/allads", async (req, res) => {
+app.get("/GetAllAds", async (req, res) => {
 	const Ads = await Ad.find()
 	res.send(Ads)
-});
-
-
-app.get('/adsGet', function(req,res){
-    res.send(Ad.find().then(result))
 });
 
 app.use("/api/adspost", adPostRoute);
