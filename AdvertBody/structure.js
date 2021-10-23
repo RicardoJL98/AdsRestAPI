@@ -1,24 +1,24 @@
 const mongoose = require('mongoose');
 
-const AdSchema = new mongoose.Schema(
+const AdStructure = new mongoose.Schema(
     {
-        title:{
+        Title:{
             type: String,
             required: true,
         },
-        href:{
+        Href:{
             type: String,
             required: true,
         },
-        image:{
+        Banner:{
             type: String,
             required: true,
         },
-        content:{
+        BodyContent:{
             type: String,
             required: true,
         },
     },
 );
 
-module.exports = mongoose.model("adbody", AdSchema);
+module.exports = mongoose.model("Advert", AdStructure);
