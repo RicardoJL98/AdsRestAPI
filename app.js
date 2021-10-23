@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
+const PORT = process.env.PORT || 3000;
+
 // To Init this api tab "npm run server"
 
 const adPostRoute = require("./routes/adspost");
@@ -20,6 +22,6 @@ app.use("/api/adspost", adPostRoute);
 
 app.use("/api/adsget", adGetRoute);
 
-app.listen(process.env.PORT || 3000, () =>{
+app.listen(PORT, () =>{
     console.log("Backend Server Running...")
 });
